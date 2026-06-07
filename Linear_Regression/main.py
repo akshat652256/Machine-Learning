@@ -34,6 +34,8 @@ y_test = y[test_indices]
 mean = X_train.mean(axis=0)
 std = X_train.std(axis=0)
 
+std[std==0] = 1
+
 X_train = (X_train - mean) / std
 X_test = (X_test - mean) / std
 
