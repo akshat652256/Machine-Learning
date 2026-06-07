@@ -8,7 +8,7 @@ dataset = pd.read_csv("/kaggle/input/datasets/akshatsatyanarayan/cartest/carpric
 # Data Preprocessing
 
 X = dataset.drop(columns=["car_ID","CarName","price"])
-X = pd.get_dummies(X,columns=["fueltype","aspiration","doornumber","carbody","drivewheel","enginelocation","enginetype","cylindernumber"],dtype = int)
+X = pd.get_dummies(X,columns=["fueltype","aspiration","doornumber","carbody","drivewheel","enginelocation","enginetype","cylindernumber","fuelsystem"],dtype = int)
 X = X.to_numpy()
 
 y = dataset["price"].to_numpy()
