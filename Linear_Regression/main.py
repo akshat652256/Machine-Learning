@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Reading Data
-dataset = pd.read_csv("/kaggle/input/datasets/akshatsatyanarayan/cartest")
+dataset = pd.read_csv("/kaggle/input/datasets/akshatsatyanarayan/cartest/carprice.csv")
 
 # Data Preprocessing
 
