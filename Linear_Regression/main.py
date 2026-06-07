@@ -78,7 +78,9 @@ for epoch in range(epochs):
 ss_res = 0.0
 ss_tot = 0.0
 test_loss = 0.0
-for row in range(m):
+m_test = X_test.shape[0]
+
+for row in range(m_test):
     y_test_pred = np.dot(w,X_test[row]) + b
     y_test_error = y_test_pred - y_test[row]
     y_test_error_mean = y_test_pred - y_test.mean()
@@ -86,7 +88,7 @@ for row in range(m):
     ss_tot += y_test_error_mean ** 2
     test_loss += y_test_error ** 2
 
-test_loss = test_loss / 2 * m
+test_loss = test_loss / 2 * m_test
 r2_score = 1 - (ss_res/ss_tot)
 
 print(f"Test loss: {test_loss}, R2 score: {r2_score}")
