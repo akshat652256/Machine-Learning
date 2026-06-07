@@ -39,8 +39,8 @@ X_test = (X_test - mean) / std
 
 # Initialize Parameters and Hyperparameters
 
-m = X.shape[0]
-n = X.shape[1]
+m = X_train.shape[0]
+n = X_train.shape[1]
 
 w = np.random.randn(n)
 b = 0.0
