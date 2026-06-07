@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Reading Data
 dataset = pd.read_csv("/kaggle/input/datasets/akshatsatyanarayan/cartest/carprice.csv")
@@ -93,13 +94,30 @@ r2_score = 1 - (ss_res/ss_tot)
 
 print(f"Test loss: {test_loss}, R2 score: {r2_score}")
 
+# Plots
+
 plt.plot(loss_history)
 plt.xlabel("Epoch")
 plt.ylabel("Loss")
 plt.title("Epochs vs Training Loss")
-plt.show()
+plt.savefig("loss.png")
     
 
+corr_matrix = dataset.corr(numeric_only=True)
+
+plt.figure(figsize=(12, 10))
+sns.heatmap(
+    corr_matrix,
+    annot=True,
+    fmt=".2f",
+    cmap="coolwarm",
+    center=0
+)
+
+plt.title("Correlation Matrix")
+plt.tight_layout()
+plt.savefig("correlation_matrix.png")
+plt.close()
 
 
 
